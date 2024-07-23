@@ -3,13 +3,26 @@ services:
     image: dockurr/windows
     container_name: windows
     environment:
-      VERSION: "core11"
+      VERSION: "https://github.com/IL01DI/Tiny10/releases/download/v1/Tiny10.iso"
+      REGION: "en-US"
+      KEYBOARD: "en-US"
+      DISK_SIZE: "32G"
+      MANUAL: "Y"
+      RAM_SIZE: "0.5G"
+      CPU_CORES: "4"
     devices:
       - /dev/kvm
+      - driver: nvidia
+            count: 1
+            capabilities: [gpu]
     cap_add:
       - NET_ADMIN
     ports:
       - 8006:8006
       - 3389:3389/tcp
       - 3389:3389/udp
-    stop_grace_period: 2m
+    stop_grace_period: 99999999m
+    privileged: true
+    
+
+  
