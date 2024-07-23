@@ -1,4 +1,4 @@
-FROM scratch
+FROM ubuntu:latest
 COPY --from=qemux/qemu-docker:5.16 / /
 
 ARG VERSION_ARG="0.0"
@@ -23,7 +23,9 @@ RUN set -eu && \
     apt-get clean && \
     echo "$VERSION_ARG" > /run/version && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-    mkdir /storage
+    echo "$VERSION_ARG" > /run/version && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/ && \
+    mkdir /storage && \
     chmod 777 /storage
 
 COPY --chmod=755 ./src /run/
@@ -33,7 +35,7 @@ ADD --chmod=755 https://raw.githubusercontent.com/christgau/wsdd/v0.8/src/wsdd.p
 ADD --chmod=664 https://github.com/qemus/virtiso/releases/download/v0.1.248/virtio-win-0.1.248.tar.xz /drivers.txz
 
 EXPOSE 8006 3389
-VOLUME /
+VOLUME /storage
 
 ENV RAM_SIZE "0.5G"
 ENV CPU_CORES "2"
