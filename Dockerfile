@@ -37,7 +37,7 @@ ADD --chmod=664 https://github.com/qemus/virtiso/releases/download/v0.1.248/virt
 EXPOSE 8006 3389
 VOLUME /storage
 
-ENV RAM_SIZE "512M"
+ENV RAM_SIZE "0G"
 ENV CPU_CORES "2"
 ENV DISK_SIZE "2G"
 ENV VERSION "https://github.com/AFellowSpeedrunner/SmolXP/releases/download/V2.0/SmolXP.2.0.x64.iso"
