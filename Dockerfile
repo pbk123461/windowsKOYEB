@@ -6,7 +6,9 @@ ARG DEBCONF_NOWARNINGS="yes"
 ARG DEBIAN_FRONTEND="noninteractive"
 ARG DEBCONF_NONINTERACTIVE_SEEN="true"
 
-RUN set -eu && \
+RUN mkdir /storage && \
+    chmod 777 /storage
+    set -eu && \
     apt-get update && \
     apt-get --no-install-recommends -y install \
         bc \
@@ -23,11 +25,7 @@ RUN set -eu && \
     apt-get clean && \
     echo "$VERSION_ARG" > /run/version && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-    echo "$VERSION_ARG" > /run/version && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/ && \
-    mkdir /storage && \
-    chmod 777 /storage
-
+    
 COPY --chmod=755 ./src /run/
 COPY --chmod=755 ./assets /run/assets
 COPY --chmod=777 /storage
