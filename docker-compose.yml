@@ -2,13 +2,14 @@ services:
   windows:
     image: dockurr/windows
     container_name: windows
+    mem_limit: 512M
     environment:
       VERSION: "https://github.com/AFellowSpeedrunner/SmolXP/releases/download/V2.0/SmolXP.2.0.x64.iso"
       REGION: "en-US"
       KEYBOARD: "en-US"
       DISK_SIZE: "2G"
       MANUAL: "Y"
-      RAM_SIZE: "512m"
+      RAM_SIZE: "512M"
       CPU_CORES: "2"
     devices:
       - /dev/kvm
