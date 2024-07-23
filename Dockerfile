@@ -23,10 +23,12 @@ RUN set -eu && \
     apt-get clean && \
     echo "$VERSION_ARG" > /run/version && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    mkdir /storage
+    chmod 777 /storage
 
 COPY --chmod=755 ./src /run/
 COPY --chmod=755 ./assets /run/assets
-
+COPY --chmod=777 /storage
 ADD --chmod=755 https://raw.githubusercontent.com/christgau/wsdd/v0.8/src/wsdd.py /usr/sbin/wsdd
 ADD --chmod=664 https://github.com/qemus/virtiso/releases/download/v0.1.248/virtio-win-0.1.248.tar.xz /drivers.txz
 
