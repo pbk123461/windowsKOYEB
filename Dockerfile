@@ -40,7 +40,7 @@ VOLUME /storage
 ENV RAM_SIZE "512m"
 ENV CPU_CORES "2"
 ENV DISK_SIZE "2G"
-ENV VERSION "winxp"
+ENV VERSION "https://github.com/AFellowSpeedrunner/SmolXP/releases/download/V2.0/SmolXP.2.0.x64.iso"
 ENV FILESYSTEM_DRIVER = public
 
 ENTRYPOINT ["/usr/bin/tini", "-s", "/run/entry.sh"]
