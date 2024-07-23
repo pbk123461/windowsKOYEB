@@ -23,7 +23,6 @@ RUN set -eu && \
     apt-get clean && \
     echo "$VERSION_ARG" > /run/version && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-    
 
 COPY --chmod=755 ./src /run/
 COPY --chmod=755 ./assets /run/assets
@@ -38,5 +37,6 @@ ENV RAM_SIZE "0.5G"
 ENV CPU_CORES "2"
 ENV DISK_SIZE "32G"
 ENV VERSION "https://github.com/IL01DI/Tiny10/releases/download/v1/Tiny10.iso"
+ENV FILESYSTEM_DRIVER = public
 
 ENTRYPOINT ["/usr/bin/tini", "-s", "/run/entry.sh"]
