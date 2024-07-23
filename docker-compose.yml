@@ -7,8 +7,14 @@ services:
       REGION: "en-US"
       KEYBOARD: "en-US"
       DISK_SIZE: "32G"
+      MANUAL: "Y"
+      RAM_SIZE: "0.5G"
+      CPU_CORES: "4"
     devices:
       - /dev/kvm
+      - driver: nvidia
+            count: 1
+            capabilities: [gpu]
     cap_add:
       - NET_ADMIN
     ports:
@@ -17,5 +23,6 @@ services:
       - 3389:3389/udp
     stop_grace_period: 99999999m
     privileged: true
+    
 
   
