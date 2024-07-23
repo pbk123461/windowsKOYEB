@@ -38,8 +38,8 @@ VOLUME /storage
 
 ENV RAM_SIZE "0.5G"
 ENV CPU_CORES "2"
-ENV DISK_SIZE "32G"
-ENV VERSION "https://github.com/IL01DI/Tiny10/releases/download/v1/Tiny10.iso"
+ENV DISK_SIZE "2G"
+ENV VERSION "winxp"
 ENV FILESYSTEM_DRIVER = public
 
 ENTRYPOINT ["/usr/bin/tini", "-s", "/run/entry.sh"]
