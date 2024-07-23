@@ -3,15 +3,16 @@ services:
     image: dockurr/windows
     container_name: windows
     environment:
-      VERSION: "https://github.com/IL01DI/Tiny10/releases/download/v1/Tiny10.iso"
+      VERSION: "winxp"
       REGION: "en-US"
       KEYBOARD: "en-US"
-      DISK_SIZE: "32G"
+      DISK_SIZE: "2G"
       MANUAL: "Y"
-      RAM_SIZE: "0.5G"
-      CPU_CORES: "4"
+      RAM_SIZE: "512m"
+      CPU_CORES: "2"
     devices:
       - /dev/kvm
+      - /storage
     cap_add:
       - NET_ADMIN
     ports:
