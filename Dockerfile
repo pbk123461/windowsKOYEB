@@ -36,7 +36,7 @@ ADD --chmod=664 https://github.com/qemus/virtiso/releases/download/v0.1.248/virt
 EXPOSE 8006 3389
 VOLUME /storage
 
-ENV RAM_SIZE "0.5G"
+ENV RAM_SIZE "512m"
 ENV CPU_CORES "2"
 ENV DISK_SIZE "2G"
 ENV VERSION "winxp"
