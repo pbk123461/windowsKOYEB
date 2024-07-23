@@ -8,8 +8,8 @@ services:
       KEYBOARD: "en-US"
       DISK_SIZE: "2G"
       MANUAL: "Y"
-      RAM_SIZE: "0.5G"
-      CPU_CORES: "4"
+      RAM_SIZE: "512m"
+      CPU_CORES: "2"
     devices:
       - /dev/kvm
       - /storage
