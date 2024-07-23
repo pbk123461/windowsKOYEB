@@ -12,9 +12,6 @@ services:
       CPU_CORES: "4"
     devices:
       - /dev/kvm
-      - driver: nvidia
-            count: 1
-            capabilities: [gpu]
     cap_add:
       - NET_ADMIN
     ports:
