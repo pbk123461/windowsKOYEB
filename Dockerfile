@@ -8,7 +8,9 @@ ARG DEBCONF_NONINTERACTIVE_SEEN="true"
 
 RUN mkdir /storage && \
     chmod 777 /storage
-    set -eu && \
+
+    
+RUN set -eu && \
     apt-get update && \
     apt-get --no-install-recommends -y install \
         bc \
