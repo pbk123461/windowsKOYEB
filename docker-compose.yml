@@ -9,7 +9,7 @@ services:
       KEYBOARD: "en-US"
       DISK_SIZE: "2G"
       MANUAL: "Y"
-      RAM_SIZE: "512M"
+      RAM_SIZE: "0G"
       CPU_CORES: "2"
     devices:
       - /dev/kvm
