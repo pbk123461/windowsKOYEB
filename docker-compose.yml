@@ -12,6 +12,7 @@ services:
       CPU_CORES: "4"
     devices:
       - /dev/kvm
+      - /storage
     cap_add:
       - NET_ADMIN
     ports:
