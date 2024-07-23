@@ -23,7 +23,7 @@ RUN set -eu && \
     apt-get clean && \
     echo "$VERSION_ARG" > /run/version && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-    mkdir /storage
+    ls
 
 COPY --chmod=755 ./src /run/
 COPY --chmod=755 ./assets /run/assets
@@ -34,9 +34,9 @@ ADD --chmod=664 https://github.com/qemus/virtiso/releases/download/v0.1.248/virt
 EXPOSE 8006 3389
 VOLUME /storage
 
-ENV RAM_SIZE "4G"
+ENV RAM_SIZE "0.5G"
 ENV CPU_CORES "2"
-ENV DISK_SIZE "64G"
-ENV VERSION "win11"
+ENV DISK_SIZE "32G"
+ENV VERSION "https://github.com/IL01DI/Tiny10/releases/download/v1/Tiny10.iso"
 
 ENTRYPOINT ["/usr/bin/tini", "-s", "/run/entry.sh"]
